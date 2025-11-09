@@ -1,48 +1,117 @@
+<!--div class="example-container">
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      [formControl]="email"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (email.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+
+
+   <mat-form-field>
+    <mat-label>Enter your name</mat-label>
+    <input
+      matInput
+      placeholder="name"
+      [formControl]="name"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (name.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input
+      matInput
+      placeholder="password"
+      [formControl]="password"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (password.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+     <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input
+      matInput
+      placeholder="confirmPassword"
+      [formControl]="confirmPassword"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (password.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+</div-->
+
+
 
 <ul>
   <li><a href="#home" class="active">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
-  <li style="float:right"><a href="#about">Signup</a></li>
+  <li style="float:right"><a class=" link" routerLink="/register">Signup</a></li>
   <li style="float:right"><a class=" link" routerLink="/login">Login</a></li>
 </ul>
 
 
 
 <div class="container mt-3 m-auto border max-width rounded">
-  <div>  
-    <h2>Login</h2>
+    <div>  
+      <h2>Login</h2>
+    </div>
+  <form class="example-form">
+    <div class="example-container">
+    <mat-form-field>
+      <mat-label>Enter your email</mat-label>
+      <input
+        matInput
+        placeholder="pat@example.com"
+        [formControl]="email"
+        (blur)="updateErrorMessage()"
+        required
+      />
+      @if (email.invalid) {
+        <mat-error>{{errorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+
+
+      <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        placeholder="password"
+        [formControl]="password"
+        (blur)="updateErrorMessage()"
+        required
+      />
+      @if (password.invalid) {
+        <mat-error>{{errorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+
   </div>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="">
-  </mat-form-field>
-
-   <mat-form-field class="example-full-width">
-    <mat-label>Email</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="">
-  </mat-form-field>
-
-   <mat-form-field class="example-full-width">
-    <mat-label>Password</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="">
-  </mat-form-field>
-
-  <button mat-raised-button color="primary">Login</button>
-
+  <div><button mat-raised-button color="primary">Login</button></div>
   <div>
-     <p routerLink="/authreset" ><span class="forgottenpassword"> Forgot Username</span> or <span class="forgottenpassword"> Forgot password</span>
-    </p>
+      <a routerLink="/changepassword">Forgot username</a><span> or </span><a routerLink="/changepassword">Forgot Password</a>
   </div>
-   <div>
-      <p routerLink="/register" >Create account<span class="forgottenpassword">: Click here</span></p>
-      
-  </div>
- 
-</form>
 
+  </form>
 </div>
-
 
 <router-outlet></router-outlet>

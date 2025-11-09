@@ -65,6 +65,16 @@ button {
 
 
 
+.example-container mat-form-field + mat-form-field {
+  margin-left: 2px;
+
+}
+mat-form-field {
+  width: 97%; 
+
+   }
+
+
 
 
 
