@@ -6,6 +6,10 @@ import { Registerform } from './registerform/registerform';
 import { ChangePassword } from './change-password/change-password';
 import { AuthReset } from './auth-reset/auth-reset';
 import { Home } from './home/home';
+import { UserData } from './user-data/user-data';
+import { AddUser } from './add-user/add-user';
+import { ShowData } from './show-data/show-data';
+
 
 
 
@@ -17,5 +21,8 @@ export const routes: Routes = [
     {path: 'changepassword' , component:ChangePassword},
     {path: 'authreset' , component:AuthReset},
     {path: 'home' , component:Home},
+    {path: 'data' , component:UserData},
+    {path: 'adduser' , component:AddUser},
+    {path: 'showdata' , component:ShowData},
     {path: '**' , component:PageNotFound}
 ];

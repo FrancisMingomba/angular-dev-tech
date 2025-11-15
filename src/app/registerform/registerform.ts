@@ -50,4 +50,13 @@ export class Registerform {
     }
   }
 
+
+  onSubmit() {
+    if (this.password.value !== this.confirmPassword.value) {
+      this.errorMessage.set('Passwords do not match');
+    } else {
+      this.errorMessage.set('Registration successful!');
+      // Here you can handle the form submission, e.g., send data to the server
+    }
+  }
 }
