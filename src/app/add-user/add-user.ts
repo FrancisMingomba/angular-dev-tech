@@ -16,6 +16,7 @@ export class AddUser {
   selectedUser!: User | null;
   constructor() {
     this.userForm = this.formBuider.group({
+      id: [''],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -25,10 +26,15 @@ export class AddUser {
   saveUser() {
     let userData = this.userForm.value;
     console.log('User Data:', userData);
-    this.userStore.addUser(userData);
-    console.log('Current Users in Store:', this.userStore.users());
-    //this.clearForm(); 
-    this.userForm.reset();
+    if(this.selectedUser){
+      // Update existing user
+      userData.id = this.selectedUser.id;
+      this.userStore.updateUser(userData);
+        }else{
+      this.userStore.addUser(userData);
+    }
+    this.clearForm(); 
+   // this.userForm.reset();
   }
 
   clearForm() { 
@@ -38,7 +44,7 @@ export class AddUser {
  editUser(user: User) {
   this.userForm.patchValue(user);
   this.selectedUser = user;
-
  }
+
 
 }

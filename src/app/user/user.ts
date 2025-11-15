@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './user.css',
 })
 export class User {
+  id: any;
 
 }
