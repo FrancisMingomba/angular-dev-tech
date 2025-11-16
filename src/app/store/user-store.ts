@@ -22,6 +22,7 @@ export class UserStore{
        this.api.addUser(user).subscribe((result) => {
         console.log('User added:', result);
           this.users.update((users) => {
+            user.id = result.id;
             return [...users, user];
         });
        })

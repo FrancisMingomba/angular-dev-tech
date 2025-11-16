@@ -14,7 +14,7 @@ export class SignupService {
     return this.http.get<User[]>(this.baseUrl + '/users/getAllUsers');
   }
   addUser(user: User) {
-    return this.http.post(this.baseUrl + '/users/register', user);
+    return this.http.post<User>(this.baseUrl + '/users/register', user);
   }
 
   upDate(user: User) {
