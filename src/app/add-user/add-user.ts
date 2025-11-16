@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { User } from '../user/user';
+import { User } from '../interface/user';
 import { UserStore } from '../store/user-store';
 
 @Component({
@@ -46,5 +46,8 @@ export class AddUser {
   this.selectedUser = user;
  }
 
+ deleteUser(user: User) {
+  this.userStore.deleteUser(user);
+ }
 
 }
