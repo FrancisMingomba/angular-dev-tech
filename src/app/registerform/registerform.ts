@@ -8,6 +8,7 @@ import { RouterOutlet, RouterLink, Router } from '@angular/router';
 import { PasswordValidators } from './password.validator';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
+import { UserStore } from '../store/user-store';
 
 @Component({
   selector: 'app-registerform',
@@ -23,6 +24,7 @@ import { merge } from 'rxjs';
   styleUrl: './registerform.css',
 })
 export class Registerform {
+
    name = new FormControl('', [Validators.required]);
    email = new FormControl('', [Validators.required, Validators.email]);
    password = new FormControl('', [Validators.required, Validators.minLength(6)]);
@@ -30,6 +32,7 @@ export class Registerform {
    
 
   errorMessage = signal('');
+  merge: any;
 
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges,
@@ -52,11 +55,46 @@ export class Registerform {
 
 
   onSubmit() {
-    if (this.password.value !== this.confirmPassword.value) {
-      this.errorMessage.set('Passwords do not match');
+    
+  
+  }
+
+
+   
+  userStore = new UserStore();
+  save() {
+    let formVues = {
+      id: '',
+      name: this.name.value || '',
+      email: this.email.value || '',
+      password: this.password.value || ''
+     };
+     console.log(formVues);
+     this.userStore.addUser(formVues);
+
+
+
+    /*
+    let user =  this.userStore.users().find(u => u.email === this.email.value);
+    if(user){
+      this.errorMessage.set('User with this email already exists');
     } else {
-      this.errorMessage.set('Registration successful!');
-      // Here you can handle the form submission, e.g., send data to the server
+      const newUser = {
+        id: '',
+        name: this.name.value || '',
+        email: this.email.value || '',
+        password: this.password.value || ''
+      };
+      this.userStore.addUser(newUser);
+      this.errorMessage.set('User registered successfully');
     }
+      */
+  }
+
+  clearForm() {
+    this.name.reset();
+    this.email.reset();
+    this.password.reset();
+    this.confirmPassword.reset();
   }
 }

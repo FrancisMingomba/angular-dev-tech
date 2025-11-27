@@ -72,16 +72,17 @@
 
 <div class="container mt-3 m-auto border max-width rounded">
   <div>  
-    <h2>Signup</h2>
+    <h2>Signup({{userStore.users().length}})</h2>
   </div>
-<form class="example-form" (ngSubmit)="onSubmit()">
+  
+<form class="example-form" (ngSubmit)="save()">
   <div class="example-container">
   <mat-form-field>
-    <mat-label>Enter your email</mat-label>
+    <mat-label>name</mat-label>
     <input
       matInput
-      placeholder="pat@example.com"
-      [formControl]="email"
+      placeholder="name"
+      [formControl]="name"
       (blur)="updateErrorMessage()"
       required
     />
@@ -93,21 +94,21 @@
 
 
    <mat-form-field>
-    <mat-label>Enter your name</mat-label>
+    <mat-label>email</mat-label>
     <input
       matInput
-      placeholder="name"
-      [formControl]="name"
+      placeholder="email"
+      [formControl]="email"
       (blur)="updateErrorMessage()"
       required
     />
-    @if (name.invalid) {
+    @if (email.invalid) {
       <mat-error>{{errorMessage()}}</mat-error>
     }
   </mat-form-field>
 
     <mat-form-field>
-    <mat-label>Enter your password</mat-label>
+    <mat-label>password</mat-label>
     <input
       matInput
       placeholder="password"
@@ -141,5 +142,61 @@
 
 </form>
 </div>
+
+
+
+<div class="container">
+  <h2 class="text-center mt-4">
+    Registered Users
+  </h2>
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Emame</th>
+        <th>Namil</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userStore.users()">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <router-outlet></router-outlet>
