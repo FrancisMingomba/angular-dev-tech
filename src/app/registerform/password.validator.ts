@@ -9,7 +9,6 @@ export class PasswordValidators {
         if(password?.value !== confirmPassword?.value)
             return {passwordsShouldMatch: true};
         return null;
-
     }
 
 }

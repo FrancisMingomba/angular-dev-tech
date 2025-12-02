@@ -77,6 +77,7 @@
   
 <form class="example-form" (ngSubmit)="save()">
   <div class="example-container">
+    
   <mat-form-field>
     <mat-label>name</mat-label>
     <input
@@ -86,6 +87,7 @@
       (blur)="updateErrorMessage()"
       required
     />
+    <mat-icon matSuffix>home</mat-icon>
     @if (email.invalid) {
       <mat-error>{{errorMessage()}}</mat-error>
     }
@@ -100,8 +102,10 @@
       placeholder="email"
       [formControl]="email"
       (blur)="updateErrorMessage()"
+     
       required
     />
+      <mat-icon matSuffix>email</mat-icon>
     @if (email.invalid) {
       <mat-error>{{errorMessage()}}</mat-error>
     }
@@ -114,8 +118,10 @@
       placeholder="password"
       [formControl]="password"
       (blur)="updateErrorMessage()"
+
       required
     />
+      <mat-icon matSuffix>lock</mat-icon>
     @if (password.invalid) {
       <mat-error>{{errorMessage()}}</mat-error>
     }
@@ -128,12 +134,27 @@
       placeholder="confirmPassword"
       [formControl]="confirmPassword"
       (blur)="updateErrorMessage()"
+       minlength=""
+      maxlength=""
       required
     />
-    @if (password.invalid) {
+      <mat-icon matSuffix>lock</mat-icon>
+    @if (confirmPassword.invalid || this.confirmPassword.value !== this.password.value ) {
       <mat-error>{{errorMessage()}}</mat-error>
     }
+     @if(this.confirmPassword.value !== this.password.value) {
+      <p>Password Missmatch</p>
+    }
+
   </mat-form-field>
+  <!--mat-form-field>
+  <mat-label>Password</mat-label>
+  <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required>
+  <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+    {{ hidePassword ? 'visibility_off' : 'visibility' }}
+  </mat-icon>
+</mat-form-field-->
+
 </div>
 <div><button mat-raised-button color="primary">Register</button></div>
 <!--div>
@@ -142,61 +163,5 @@
 
 </form>
 </div>
-
-
-
-<div class="container">
-  <h2 class="text-center mt-4">
-    Registered Users
-  </h2>
-  <table class="table table-success table-striped">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Emame</th>
-        <th>Namil</th>
-        <th>Password</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of userStore.users()">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.password }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <router-outlet></router-outlet>

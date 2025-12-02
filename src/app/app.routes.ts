@@ -10,6 +10,7 @@ import { UserData } from './user-data/user-data';
 import { AddUser } from './add-user/add-user';
 import { ShowData } from './show-data/show-data';
 import { Signup } from './signup/signup';
+import { Test } from './test/test';
 
 
 
@@ -26,5 +27,6 @@ export const routes: Routes = [
     {path: 'adduser' , component:AddUser},
     {path: 'showdata' , component:ShowData},
     {path: 'signup' , component:Signup},
+    {path: 'test' , component:Test},
     {path: '**' , component:PageNotFound}
 ];

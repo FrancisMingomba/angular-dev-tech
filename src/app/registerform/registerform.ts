@@ -9,21 +9,36 @@ import { PasswordValidators } from './password.validator';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { UserStore } from '../store/user-store';
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-registerform',
   imports: [RouterOutlet,
-     RouterLink,
-     FormsModule,
-     MatFormFieldModule,
-     MatInputModule,
-     ReactiveFormsModule,
-     CommonModule],
+    RouterLink,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatIcon,
+    MatInputModule,
+    FormsModule
+  ],
     
   templateUrl: './registerform.html',
   styleUrl: './registerform.css',
 })
 export class Registerform {
+//-----------------------------------------------------------------
+    hidePassword = true; // Initialize to true for hidden password
+     // Example for reactive forms
+  passwordForm = new FormGroup({
+    password: new FormControl('', Validators.required),
+//----------------------------------------------------------    
+  });
+updateErrorMessage() {
+throw new Error('Method not implemented.');
+}
 
    name = new FormControl('', [Validators.required]);
    email = new FormControl('', [Validators.required, Validators.email]);
@@ -40,26 +55,31 @@ export class Registerform {
        this.password.statusChanges, this.password.valueChanges,
        this.confirmPassword.statusChanges, this.confirmPassword.valueChanges)
       .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateErrorMessage());
+      .subscribe(() => this. emailErrorMessage()),{
+
+      };
   }
 
-  updateErrorMessage() {
+  emailErrorMessage() {
     if (this.email.hasError('required')) {
       this.errorMessage.set('You must enter a value');
     } else if (this.email.hasError('email')) {
-      this.errorMessage.set('Not a valid email');
+      this.errorMessage.set('Not a valid value');
     } else {
-      this.errorMessage.set('');
+      this.errorMessage.set('Password Missmatch X');
     }
   }
+  
 
 
   onSubmit() {
-    
-  
+    if (this.password.value !== this.confirmPassword.value) {
+      this.errorMessage.set('Passwords do not match');
+    } else {
+      this.errorMessage.set('Registration successful!');
+      // Here you can handle the form submission, e.g., send data to the server
+    }
   }
-
-
    
   userStore = new UserStore();
   save() {
@@ -71,6 +91,8 @@ export class Registerform {
      };
      console.log(formVues);
      this.userStore.addUser(formVues);
+
+     this.clearForm();
 
 
 

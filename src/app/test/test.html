@@ -1,1 +1,111 @@
-<p>test works!</p>
+<!--div class="example-container">
+  <mat-form-field>
+    <mat-label>Enter your email</mat-label>
+    <input
+      matInput
+      placeholder="pat@example.com"
+      [formControl]="email"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (email.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+
+
+   <mat-form-field>
+    <mat-label>Enter your name</mat-label>
+    <input
+      matInput
+      placeholder="name"
+      [formControl]="name"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (name.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>Enter your password</mat-label>
+    <input
+      matInput
+      placeholder="password"
+      [formControl]="password"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (password.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+
+     <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input
+      matInput
+      placeholder="confirmPassword"
+      [formControl]="confirmPassword"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (password.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
+</div-->
+
+
+
+<ul>
+  <li><a href="#home" class="active">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a class=" link" routerLink="/register">Singup</a></li>
+  <li style="float:right"><a class=" link" routerLink="/login">Login</a></li>
+</ul>
+
+
+
+<div class="container mt-3 m-auto border max-width rounded">
+  <div>  
+    <h2>Signup({{userStore.users().length}})</h2>
+  </div>
+  
+<form class="example-form"  [formGroup]="userForm" (ngSubmit)="saveUser()">
+  <div class="example-container">
+  <mat-form-field>
+    <mat-label>name</mat-label>
+    <input matInput  placeholder="name" name="name" />
+  </mat-form-field>
+
+
+
+   <mat-form-field>
+    <mat-label>email</mat-label>
+    <input matInput placeholder="email" name="email" required />
+  </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>password</mat-label>
+    <input type="password" matInput  placeholder="password" required />
+ 
+  </mat-form-field>
+
+    <mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" matInput placeholder="confirm Password" name="confirmPassword" required />
+  </mat-form-field>
+</div>
+<div><button mat-raised-button color="primary">Register</button></div>
+<!--div>
+     <a href="#">Forgot username</a><span> or </span><a href="#">Forgot Password</a>
+</div-->
+
+</form>
+</div>
+
+<router-outlet></router-outlet>
