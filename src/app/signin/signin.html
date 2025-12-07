@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="login-card">
+  <h3 class="text-center mb-4">Login</h3>
+  <form [formGroup]="loginForm">
+      <!--div class="mb-3">
+      <label for="userId" formControlName="userId" class="form-label">Email</label>
+      <input type="text" class="form-control" id="userId" placeholder="User Id" />
+    </div-->
+       <!--div class="mb-3">
+      <label for="id" formControlName="id" class="form-label">Email</label>
+      <input type="text" class="form-control" id="id" placeholder="Id" />
+    </div-->
+    <div class="mb-3">
+      <label for="email"  class="form-label">Email</label>
+      <input type="text"  formControlName="email" id="email" placeholder="Enter email" />
+    </div>
+   <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password"  formControlName="password" id="password" placeholder="Enter password" />
+   <div class="d-grid">
+        <button type="button" class=" btn btn-primary" (click)="onLogin()">Login</button>
+       <!--button type="submit" class=" btn btn-warning" (click)="onLogin()">Logged User Name</button-->
+       <!--button type="submit" class=" btn btn-primary" (click)="onLogin()">Logoff</button-->
+   </div>
+   </div>
+  </form>
+  </div>
+</div>
+<router-outlet></router-outlet>

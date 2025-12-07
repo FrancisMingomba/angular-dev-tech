@@ -72,7 +72,13 @@ button {
 mat-form-field {
   width: 97%; 
 
-   }
+}
+
+.password-mismatch{
+  color:crimson;
+  font-size: small;
+
+}
 
 
 

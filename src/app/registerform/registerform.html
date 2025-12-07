@@ -93,8 +93,6 @@
     }
   </mat-form-field>
 
-
-
    <mat-form-field>
     <mat-label>email</mat-label>
     <input
@@ -131,7 +129,7 @@
     <mat-label>Confirm Password</mat-label>
     <input
       matInput
-      placeholder="confirmPassword"
+      placeholder="confirmPassword" 
       [formControl]="confirmPassword"
       (blur)="updateErrorMessage()"
        minlength=""
@@ -143,7 +141,7 @@
       <mat-error>{{errorMessage()}}</mat-error>
     }
      @if(this.confirmPassword.value !== this.password.value) {
-      <p>Password Missmatch</p>
+      <p class="password-mismatch">Password Missmatch</p>
     }
 
   </mat-form-field>
