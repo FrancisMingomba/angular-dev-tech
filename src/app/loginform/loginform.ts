@@ -69,9 +69,11 @@ export class Loginform {
       next:(response:any)=>{
         debugger;
         if(response.result) {
-          alert('Login Success')
+         // alert('Login Success')
+           this.router.navigateByUrl("/dashboard")
         } else {
-          alert("Seccess")
+          //alert("Seccess")
+            this.router.navigateByUrl("/dashboard")
         }
       },
       error:(error)=>{
