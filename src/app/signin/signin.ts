@@ -3,6 +3,7 @@ import { Component, inject, NgModule } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { merge } from 'rxjs';
+import { routes } from '../app.routes';
 
 @Component({
   selector: 'app-signin',
@@ -42,7 +43,7 @@ http = inject(HttpClient);
         if(response.result) {
           alert('Login Success')
         } else {
-          alert("Seccess")
+          alert("Seccess");
         }
       },
       error:(error)=>{

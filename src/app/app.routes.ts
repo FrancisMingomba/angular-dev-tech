@@ -29,6 +29,6 @@ export const routes: Routes = [
     {path: 'showdata' , component:ShowData},
     {path: 'signup' , component:Signup},
     {path: 'test' , component:Test},
-     {path: 'signin' , component:Signin},
+    {path: 'signin' , component:Signin},
     {path: '**' , component:PageNotFound}
 ];

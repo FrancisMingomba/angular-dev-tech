@@ -62,7 +62,7 @@ export class Loginform {
 
 
     //http = inject(HttpClient);
-    saveUser(){
+    loginUser(){
     debugger;
     const formValue = { email: this.email.value, password: this.password.value };
     this.http.post("https://angularbackend-production.up.railway.app/auth/login", formValue).subscribe({
@@ -81,6 +81,8 @@ export class Loginform {
     })
 
   }
+
+  isButtonDisable: boolean = true;
   
 
 }
