@@ -24,4 +24,8 @@ export class SignupService {
   deleteUser(user: User) {
     return this.http.delete(this.baseUrl + '/users/' + user.id);
   }
+
+    upDateUser(user: User) {
+    return this.http.put(this.baseUrl + '/users/' + user.id, user);
+  }
 }
