@@ -1,4 +1,86 @@
 
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  background: #aa8304;
+}
+.mainX{
+  background:  rgb(46, 27, 196);
+  width: 600px;
+}
+
+.box{
+  width: 22rem;
+  height: 10rem;
+  background: #95ad2eff;
+}
+.box-3{
+  width: 22rem;
+  height: 40rem;
+  background: #95ad2eff;
+}
+.space-between-divs{
+  height: 15px;
+}
+.column2-box1
+{
+  width: 22rem;
+  height: 15rem;
+  background: #3484eeff;
+}
+.column3-box1{
+  width: 22rem;
+  height: 10rem;
+  background: rgb(240, 186, 186);
+}
+.column3-box2{
+  width: 22rem;
+  height: 20rem;
+  background: rgb(240, 186, 186);
+}
+.x{
+    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+    width: 800px;
+}
+
+  .y {
+
+  padding: 10px;
+  box-shadow: 5px 10px 18px #c5bcbc;
+
+
+ 
+}
+
+
+
+/*
+.example-card1 {
+  max-width: 350px;
+  height: 800px;
+}
+.example-card2 {
+  max-width: 350px;
+  height: 600px;
+}
+.example-card-3 {
+  max-width: 350px;
+  height: 100px;
+}
+
+
+.example-header-imageX {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  background: #04AA6D;
+}
+
+
+
+
+
+
+
 body {
   margin: 0;
   padding: 0;
@@ -73,6 +155,72 @@ mat-form-field {
   width: 97%; 
 
    }
+
+   mat-grid-tile {
+  background: lightblue;
+ 
+}
+.y{
+  height: 800px;
+
+}
+
+
+.container{
+  display: grid;
+  gap: 5px;
+  grid-template-rows: repeat(3, 100px);
+  grid-template-columns: repeat(3, 100px);
+  border: 3px solid black;
+ 
+}
+.box1 {
+  background: lightblue;
+  width: 5rem;
+  height: 5rem;
+
+}
+.box2 {
+  background: lightblue;
+  width: 18rem;
+  height: 15rem;
+
+}
+.box3 {
+  background: lightblue;
+  width: 18rem;
+  height: 16rem;
+
+}
+.box4 {
+  background: lightblue;
+  width: 5rem;
+  height: 5rem;
+  padding-bottom: 30px;
+
+}
+.box5 {
+  background: lightblue;
+  width: 5rem;
+  height: 8rem;
+}
+.box6 {
+  background: lightblue;
+  width: 5rem;
+  height:2rem;
+  padding: 20px;
+
+}
+.space-between-cards {
+height: 10px;
+}
+
+*/
+
+
+
+
+
 
 
 

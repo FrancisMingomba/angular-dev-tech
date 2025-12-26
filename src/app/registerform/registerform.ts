@@ -114,6 +114,8 @@ throw new Error('Method not implemented.');
   }
 
   clearForm() {
+     //const formValue = { name: this.name, email: this.email.value, password: this.password.value, confirmPassword: this.confirmPassword.value };
+     //this.formValue.reset();
     this.name.reset();
     this.email.reset();
     this.password.reset();

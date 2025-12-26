@@ -8,22 +8,28 @@ import { RouterLink, RouterOutlet } from "@angular/router";
 import { merge } from 'rxjs';
 import { UserStore } from '../store/user-store';
 import { User } from '../interface/user';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+
 
 @Component({
   selector: 'app-test',
   imports: [
     RouterOutlet,
-     RouterLink,
+     //RouterLink,
      FormsModule,
      MatFormFieldModule,
      MatInputModule,
      ReactiveFormsModule,
-     CommonModule
+     CommonModule,MatGridListModule,
+     MatCardModule, MatButtonModule
   ],
   templateUrl: './test.html',
   styleUrl: './test.css',
 })
 export class Test   {
+  /*
    formBuider = inject(FormBuilder);
   userForm!: FormGroup;
   userStore: UserStore ;
@@ -83,6 +89,6 @@ export class Test   {
     this.userForm.reset();
     this.selectedUser = null;
  }
-
+*/
     
 }

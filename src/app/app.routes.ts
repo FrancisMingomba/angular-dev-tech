@@ -12,6 +12,10 @@ import { ShowData } from './show-data/show-data';
 import { Signup } from './signup/signup';
 import { Test } from './test/test';
 import { Signin } from './signin/signin';
+import { Logout } from './logout/logout';
+import { LeftSidebar } from './left-sidebar/left-sidebar';
+import { Settings } from './settings/settings';
+import { Sidebar } from './sidebar/sidebar';
 
 
 
@@ -30,5 +34,16 @@ export const routes: Routes = [
     {path: 'signup' , component:Signup},
     {path: 'test' , component:Test},
     {path: 'signin' , component:Signin},
+    {path: 'leftsidenavbar' , component:LeftSidebar},
+    {path: 'settings' , component:Settings},
+    {path: 'sidebar' ,
+         component:Sidebar,
+         children: [
+            {path: 'home' , component:Test},
+            {path: 'logout' , component:Logout},
+            {path: '', redirectTo:'sidebar', pathMatch: 'full'}
+         ]
+        },
+    {path: 'logout' , component:Logout},
     {path: '**' , component:PageNotFound}
 ];

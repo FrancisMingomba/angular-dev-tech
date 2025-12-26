@@ -59,14 +59,20 @@
 </div-->
 
 
-
+<div class="body">
 <ul>
   <li><a href="#home" class="active">Home</a></li>
   <li><a href="#news">News</a></li>
   <li><a href="#contact">Contact</a></li>
   <li style="float:right"><a class=" link" routerLink="/register">Signup</a></li>
   <li style="float:right"><a class=" link" routerLink="/login">Login</a></li>
+  <li style="float:right"><a class=" link" (click)="authService.logout()">Logout</a></li>
 </ul>
+
+
+
+</div>
+
 
 
 
@@ -95,6 +101,7 @@
       <mat-label>Enter your password</mat-label>
       <input
         matInput
+        type="password"
         placeholder="password"
         [formControl]="password"
         (blur)="updateErrorMessage()"
@@ -106,7 +113,7 @@
     </mat-form-field>
 
   </div>
-  <div><button mat-raised-button  color="primary">Login</button></div>
+<div><button mat-raised-button  color="primary"  (click)="loginUser()">Login</button></div>
   <div>
       <a routerLink="/changepassword">Forgot username</a><span> or </span><a routerLink="/changepassword">Forgot Password</a>
   </div>

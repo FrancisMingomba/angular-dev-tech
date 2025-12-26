@@ -82,6 +82,7 @@
     <mat-label>name</mat-label>
     <input
       matInput
+      type="text"
       placeholder="name"
       [formControl]="name"
       (blur)="updateErrorMessage()"
@@ -97,6 +98,7 @@
     <mat-label>email</mat-label>
     <input
       matInput
+      type="email"
       placeholder="email"
       [formControl]="email"
       (blur)="updateErrorMessage()"
@@ -113,6 +115,7 @@
     <mat-label>password</mat-label>
     <input
       matInput
+      type="password"
       placeholder="password"
       [formControl]="password"
       (blur)="updateErrorMessage()"
@@ -129,6 +132,7 @@
     <mat-label>Confirm Password</mat-label>
     <input
       matInput
+      type="password"
       placeholder="confirmPassword" 
       [formControl]="confirmPassword"
       (blur)="updateErrorMessage()"

@@ -1,0 +1,28 @@
+<div class="x">
+<mat-toolbar color="accent">
+    <mat-toolbar-row>
+        <h1>Angular App</h1>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]="'250px'">
+        <mat-nav-list> 
+            <!--a mat-list-item>  Home</a>
+        </mat-nav-list>
+           <mat-nav-list>
+            <a mat-list-item>Home </a-->
+        @for (item of menuItems; track $index) {
+            <a mat-list-item [routerLink]="item.route">
+                <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+                <span>{{item.label}}</span>
+            </a>
+        }
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet />
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--router-outlet /-->
+</div>

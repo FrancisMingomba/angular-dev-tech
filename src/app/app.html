@@ -1,2 +1,18 @@
 
+
 <router-outlet />
+<mat-drawer-container authorized="true">
+    <mat-drawer #drawer mode="side">
+        <div class="bg-white h-screen">
+            <li>Link1</li> 
+            <li>Link2</li>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+      
+</mat-drawer-container>
+
+<router-outlet></router-outlet>
+
