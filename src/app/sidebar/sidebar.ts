@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterModule, RouterOutlet, RouterLinkWithHref } from "@angular/router";
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterModule, RouterOutlet, RouterLinkWithHref,Router } from "@angular/router";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule, MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
@@ -10,13 +10,26 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 
+
 @Component({
   selector: 'app-sidebar',
-  imports: [RouterOutlet, MatToolbarModule, MatIconModule, MatSidenavContainer, MatSidenav, MatSidenavContent, MatNavList, MatListItem, RouterLinkWithHref],
+  imports: [RouterOutlet,
+     MatToolbarModule,
+     MatIconModule,
+     MatSidenavContainer,
+     MatSidenav,
+     MatSidenavContent,
+     MatNavList,
+     MatListItem,
+     RouterLinkWithHref],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
+
+
+  constructor() {}
+   router = inject(Router);
 
 title = 'angular-sidenav';
 
@@ -39,11 +52,16 @@ menuItems: any[] = [
     {
     icon: 'logout',
     label: 'Logout',
-    route: 'logout'
+    route: "logout",
   }
-
-
 ]
+
+logout() {
+  localStorage.removeItem('token');
+    this.router.navigate(["/dashboard"]);
+
+}
+
 
 
 
