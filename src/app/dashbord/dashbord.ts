@@ -10,7 +10,16 @@ import { AuthService } from '../services/auth-service';
   styleUrl: './dashbord.css',
 })
 export class Dashbord {
- // authService = inject(AuthService);
+ public user:any = [];
+
+ public fullName: string = "";
+
+
+ ngOnInit(){
+  
+ }
+
+
  selectedToken = localStorage.getItem('token');
 
 
