@@ -5,6 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule, MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { MatListModule, MatNavList, MatListItem } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../services/auth-service';
 
 
 
@@ -21,15 +22,15 @@ import { MatButtonModule } from '@angular/material/button';
      MatSidenavContent,
      MatNavList,
      MatListItem,
-     RouterLinkWithHref],
+     RouterLinkWithHref,
+    MatListModule],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
 export class Sidebar {
 
-
-  constructor() {}
-   router = inject(Router);
+  constructor(public authService: AuthService, private router:Router) {}
+   
 
 title = 'angular-sidenav';
 
@@ -58,12 +59,18 @@ menuItems: any[] = [
 
 logout() {
   localStorage.removeItem('token');
-    this.router.navigate(["/dashboard"]);
+    this.router.navigate(["dashboard"]);
 
 }
 
 
+currentUser() {
+  return this.authService.currentUser();
+} 
 
+ // isLoggedIn() {
+   // return tokenNotExpired();
+ // }
 
   /*
 [x: string]: any;
@@ -96,3 +103,5 @@ logout() {
 */
 
 }
+
+

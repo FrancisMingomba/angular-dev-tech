@@ -1,7 +1,9 @@
 <div class="x">
 <mat-toolbar color="accent">
     <mat-toolbar-row>
-        <h1>Angular App</h1>
+        <span>Angular App</span>
+        <span class="text-aling">  Welcome {{authService.getfullNameFromToken()}}</span>
+    
     </mat-toolbar-row>
 </mat-toolbar>
 <mat-sidenav-container>
@@ -12,17 +14,18 @@
            <mat-nav-list>
             <a mat-list-item>Home </a-->
         @for (item of menuItems; track $index) {
-            <a mat-list-item [routerLink]="item.route">
-                <mat-icon matListItemAvatar>{{item.icon}}</mat-icon>
+            <a mat-list-item  [routerLink]="item.route">
+                <mat-icon mat-list-item>{{item.icon}}</mat-icon>
                 <span>{{item.label}}</span>
             </a>
         }
+        
         <a mat-list-item (click)="logout()">
              <button mat-raised-button color="primary" >
                <mat-icon >logout</mat-icon>
                 <span>Logout(this one)</span>
              </button>
-             </a>
+         </a>
         </mat-nav-list>
      
     </mat-sidenav>
@@ -32,4 +35,3 @@
 </mat-sidenav-container>
 
 <!--router-outlet /-->
-</div>
