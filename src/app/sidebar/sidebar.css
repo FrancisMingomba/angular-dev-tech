@@ -1,8 +1,5 @@
 .mat-sidenav-container {
   height: 89vh;
- 
- 
- 
 }
 .mat-sidenav-content {
   padding: 20px;
@@ -11,4 +8,17 @@
 .text-aling {
   margin-left: 75%; /* Adjust the value as needed left or rigth or ... */
 }
+.sidebar-nav{
+  height: 50px;
+}
+.icon{
+  font-size: 30px;
+  height: 20px;
+  width: 30px;
+  color: rgb(114, 104, 104);
+}
+.greeting {
+   font-size: 15px;
+}
+
 

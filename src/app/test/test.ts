@@ -11,20 +11,22 @@ import { User } from '../interface/user';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { MatIcon } from "@angular/material/icon";
 
 
 @Component({
   selector: 'app-test',
   imports: [
     RouterOutlet,
-     //RouterLink,
-     FormsModule,
-     MatFormFieldModule,
-     MatInputModule,
-     ReactiveFormsModule,
-     CommonModule,MatGridListModule,
-     MatCardModule, MatButtonModule
-  ],
+    //RouterLink,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    CommonModule, MatGridListModule,
+    MatCardModule, MatButtonModule,
+    MatIcon
+],
   templateUrl: './test.html',
   styleUrl: './test.css',
 })

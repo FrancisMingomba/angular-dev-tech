@@ -40,6 +40,7 @@ export const routes: Routes = [
          component:Sidebar,
          children: [
             {path: 'home' , component:Test},
+            {path: 'dashboard' , component:Dashbord},
             {path: 'logout' , component:Logout},
             {path: '', redirectTo:'sidebar', pathMatch: 'full'}
          ]

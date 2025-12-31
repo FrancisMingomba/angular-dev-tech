@@ -2,36 +2,41 @@
 <mat-toolbar color="accent">
     <mat-toolbar-row>
         <span>Angular App</span>
-        <span class="text-aling">  {{greeting}} {{authService.getfullNameFromToken()}}</span>
+        <span class="text-aling greeting">  {{greeting}}, {{authService.getfullNameFromToken() | uppercase}}</span>
     
     </mat-toolbar-row>
 </mat-toolbar>
-<mat-sidenav-container>
-    <mat-sidenav opened mode="side" [style.width]="'250px'">
+<div class="sidebar-nav">
+<mat-sidenav-container >
+    <mat-sidenav opened mode="side" [style.width]="'280px'">
         <mat-nav-list> 
             <!--a mat-list-item>  Home</a>
         </mat-nav-list>
            <mat-nav-list>
             <a mat-list-item>Home </a-->
-        @for (item of menuItems; track $index) {
+             @for (item of menuItems; track $index) {
             <a mat-list-item  [routerLink]="item.route">
-                <mat-icon mat-list-item>{{item.icon}}</mat-icon>
+                <mat-icon class="icon" matListItemAvatar>{{item.icon}}</mat-icon>
+                <span>{{item.label}}</span>
+            </a>
+        } 
+             @for (item of logoutItem; track $index) {
+            <a mat-list-item  [routerLink]="item.route" (click)="logout()">
+                <mat-icon class="icon" matListItemAvatar>{{item.icon}}</mat-icon>
                 <span>{{item.label}}</span>
             </a>
         }
-        
-        <a mat-list-item (click)="logout()">
+            <!--a mat-list-item (click)="logout()">
              <button mat-raised-button color="primary" >
                <mat-icon >logout</mat-icon>
                 <span>Logout(this one)</span>
              </button>
-         </a>
+            </a-->
         </mat-nav-list>
-     
     </mat-sidenav>
     <mat-sidenav-content>
         <router-outlet />
     </mat-sidenav-content>
 </mat-sidenav-container>
-
+</div>
 <!--router-outlet /-->

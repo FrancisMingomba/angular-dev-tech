@@ -13,10 +13,24 @@ import { MatButtonModule } from '@angular/material/button';
 export class Logout {
 constructor(private authService: AuthService, private router: Router) {}
 
+
+   
+
+title = 'angular-sidenav';
+
+menuItems: any[] = [
+  {
+    icon: 'logout',
+    label: 'Logout X',
+    route: 'home'
+  },
+
+]
+
+
 logout() {
   localStorage.removeItem('token');
-  this.router.navigate(['/dashboard']);
-
+  this.router.navigate(['dashboard']);
 }
 
 }

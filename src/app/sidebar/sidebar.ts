@@ -4,13 +4,8 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule, MatSidenavContainer, MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { MatListModule, MatNavList, MatListItem } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../services/auth-service';
-
-
-
-
-
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
@@ -23,7 +18,9 @@ import { AuthService } from '../services/auth-service';
      MatNavList,
      MatListItem,
      RouterLinkWithHref,
-    MatListModule],
+    MatListModule,
+    UpperCasePipe
+  ],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })
@@ -41,7 +38,7 @@ menuItems: any[] = [
     route: 'home'
   },
     {
-    icon: 'handshake',
+    icon: 'view_headline',
     label: 'Paterns and Practices',
     route: 'paterns'
   },
@@ -49,13 +46,17 @@ menuItems: any[] = [
     icon: 'book',
     label: 'Training',
     route: 'training'
-  },
-    {
-    icon: 'logout',
-    label: 'Logout',
-    route: "logout",
   }
 ]
+
+logoutItem: any[] = [
+  {
+    icon: 'logout',
+    label: 'Logout',
+    route: 'logout'
+  }
+]
+
 
 logout() {
   localStorage.removeItem('token');
@@ -76,15 +77,15 @@ currentUser() {
 
 public get greeting(): string {
   const currentHour = new Date().getHours();
-  
-  if (currentHour < 12) {
-    return 'Good Morning';
-  } else if (currentHour < 18) {
-    return 'Good Afternoon';
-  } else {
-    return 'Good Evening';  
- }
+    
+    if (currentHour < 12) {
+      return 'Good Morning';
+    } else if (currentHour < 18) {
+      return 'Good Afternoon';
+    } else {
+      return 'Good Evening';  
+  }
 
-}
+  }
 
 }
