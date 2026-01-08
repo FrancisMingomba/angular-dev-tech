@@ -63,11 +63,15 @@ button {
 }
 
 .forgottenpassword{
-    color: blue;
+    color: rgb(150, 19, 19);
     cursor: pointer;
     font-size: 0.8rem;
 }
 
+.in-progress{
+    color: rgb(237, 26, 26);
+ 
+}
 
 
 

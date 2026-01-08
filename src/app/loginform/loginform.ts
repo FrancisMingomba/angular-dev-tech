@@ -42,7 +42,7 @@ export class Loginform {
       } else if (this.email.hasError('email')) {
         this.errorMessage.set('Not a valid email');
       } else {
-        this.errorMessage.set('');
+        this.errorMessage.set('Wrong email or password');
       }
       
     }
@@ -88,9 +88,11 @@ export class Loginform {
             this.router.navigateByUrl("/dashboard")
         }
       },
-      error:(error)=>{
+      error: (errorMessage) => {
         debugger;
-      //  alert("ErrorXYZ")
+        this.errorMessage.set("Invalid login attempt");
+         
+        // alert(error.statusText("ErrorXYZ"))
       }
     });
 

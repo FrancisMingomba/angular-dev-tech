@@ -71,7 +71,8 @@
 </div>
 
 <div class="container mt-3 m-auto border max-width rounded">
-    <div>  
+    <div> 
+      <p><span class="in-progress">In proress</span></p>
       <h2>Login</h2>
     </div>
   <form class="example-form" (ngSubmit)=" loginUser()">
@@ -92,19 +93,18 @@
 
 
       <mat-form-field>
-      <mat-label>Enter your password</mat-label>
-      <input
-        matInput
-        type="password"
-        placeholder="password"
-        [formControl]="password"
-        (blur)="updateErrorMessage()"
-        required
-      />
-      @if (password.invalid) {
-        <mat-error>{{errorMessage()}}</mat-error>
-      }
-    </mat-form-field>
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      placeholder="new password"
+      [formControl]="password"
+      (blur)="updateErrorMessage()"
+      required
+    />
+    @if (password.invalid) {
+      <mat-error>{{errorMessage()}}</mat-error>
+    }
+  </mat-form-field>
 
   </div>
 <div><button mat-raised-button  color="primary"  (click)="loginUser()">Login</button></div>
